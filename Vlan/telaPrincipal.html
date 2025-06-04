@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="telaPrincipal.css">
+    <script src="telaPrincipal.js"></script>
+    <title>VLANS</title>
+</head>
+<body>
+    <header>
+        <h1>VLANs</h1>
+      </header>
+      <!--Links para navegar o siwte-->
+      <nav> 
+        <a href="#oque">O que é</a>
+        <a href="#porque">Por que usar</a>
+        <a href="#como">Como funcionam</a>
+        <a href="#positivos">Pontos positivos</a>
+        <a href="#negativos">Pontos negativos</a>
+        <a href="#config">Configuração</a>
+        <a href="#portas">Tipos de portas</a>
+        <a href="#historia">História</a>
+        <a href="#links">Fontes</a>
+        <a href="#intervlan">Inter-VLAN</a>
+      </nav>
+    
+      <section id="oque">
+        <h2>O que é uma VLAN?</h2>
+        <p>Uma rede local virtual (VLAN) permite segmentar uma rede física em várias redes lógicas independentes. Mesmo que dispositivos estejam no mesmo switch físico, podem operar como se estivessem em redes separadas.</p>
+      </section>
+      <!--Esse strong é para deixar em negrito as coisas-->
+      <section id="porque">
+        <h2>Por que usar VLANs?</h2>
+        <ul>
+          <li><strong>Segurança:</strong> Dispositivos em VLANs diferentes não se comunicam diretamente sem roteador/firewall.</li>
+          <br>
+          <li><strong>Organização:</strong> Separação por departamentos como Financeiro, RH, TI etc.</li>
+          <br>
+          <li><strong>Performance:</strong> Redução do domínio de broadcast.</li>
+          <br>
+          <li><strong>Flexibilidade:</strong> Reorganização lógica sem mudanças físicas.</li>
+        </ul>
+      </section>
+    
+      <section id="como">
+        <h2>Como funcionam?</h2>
+        <p>Cada porta de um switch pode ser configurada para uma ou mais VLANs. O padrão IEEE 802.1Q define o uso de tags nos quadros Ethernet para identificação.</p>
+        <p><em>Exemplo:</em> Porta 1 e 2 → VLAN 10 (Financeiro); Porta 3 e 4 → VLAN 20 (TI).</p>
+      </section>
+
+      <section id="positivos">
+        <h2>Pontos positivos: </h2>
+        <ul>
+            <li><strong>Segurança:</strong> Dispositivos em VLANs diferentes não se comunicam diretamente, a menos que haja um roteador ou firewall entre eles. Isso ajuda a isolar setores da rede (como “RH” ou “Financeiro”) para proteger dados sensíveis.</li>
+            <br>
+            <li><strong>Organização Lógica:</strong> Permite dividir a rede por departamento, função ou localização, independentemente da infraestrutura física. Facilita a administração da rede, especialmente em ambientes grandes.</li>
+            <br>
+            <li><strong>Redução de tráfego desnecessário (broadcast):</strong> Cada VLAN possui seu próprio domínio de broadcast, o que minimiza o tráfego desnecessário e evita congestionamentos.</li>
+            <br>
+            <li><strong>Escalabilidade:</strong> A rede pode crescer de forma organizada, com adição de VLANs conforme surgem novos departamentos ou tipos de serviço.</li>
+            <br>
+            <li><strong>Facilidade na movimentação de dispositivos:</strong> Um computador pode mudar de lugar fisicamente e continuar na mesma VLAN, bastando reconfigurar a porta do switch — não há necessidade de recabeamento.</li>
+            <br>
+            <li><strong>Melhor desempenho:</strong> Com menos broadcast em cada segmento lógico, o desempenho da rede melhora, principalmente em redes grandes.</li>
+            <br>
+            <li><strong>Gerenciamento centralizado</strong> A maioria dos switches gerenciáveis permite configurar VLANs de forma centralizada, o que facilita a manutenção e o monitoramento da rede.</li>
+            <br>
+            <li><strong>Suporte a QoS (Qualidade de Serviço)</strong> VLANs podem ser usadas junto com priorização de tráfego, como no caso de VoIP, garantindo melhor qualidade em serviços sensíveis a atraso.</li>
+        </ul>
+
+      </section>
+    
+      <section id="negativos">
+        <h2>Pontos negativos</h2>
+        <ul>
+          <li>Limite de 4096 dispositivos por domínio.</li>
+          <li>Necessidade de switches compatíveis.</li>
+          <li>Dependência de configuração nos roteadores do cliente em serviços com prioridade.</li>
+        </ul>
+      </section>
+    
+      <section id="config">
+        <h2>Métodos de configuração</h2>
+        <ul>
+          <li>Nível do protocolo (IP, IPX, LAT)</li>
+          <li>Endereço MAC</li>
+          <li>Sub-rede IP</li>
+          <li>Porta física (ex: departamento)</li>
+        </ul>
+      </section>
+      <section id="intervlan">
+        <h2>Inter-VLAN Routing</h2>
+        <p>Para que dispositivos de VLANs diferentes se comuniquem, é necessário usar um roteador ou switch de camada 3, processo conhecido como Inter-VLAN Routing. Existem dois modos principais:</p>
+        <ul>
+            <li><strong>Router-on-a-Stick:</strong> Um roteador com uma única interface física configurada com sub-interfaces, cada uma representando uma VLAN.</li>
+            <br>
+            <li><strong>Switch Layer 3:</strong> Um switch com funcionalidades de roteamento interno entre VLANs, usando interfaces virtuais (SVIs).</li>
+        </ul>
+      </section>
+    
+      <section id="portas">
+        <h2>Tipos de portas</h2>
+        <ul>
+          <li><strong>Access:</strong> Apenas uma VLAN, conecta dispositivos finais.</li>
+          <br>
+          <li><strong>Trunk:</strong> Múltiplas VLANs, conecta switches e roteadores.</li>
+        </ul>
+      </section>
+    
+      <section id="historia">
+        <h2>História</h2>
+        <p>As VLANs surgiram para melhorar o desempenho de redes extensas Ethernet. Inicialmente para reduzir domínios de colisão, hoje reduzem domínios de broadcast e aumentam a mobilidade e desempenho da rede.</p>
+      </section>
+    
+      <section id="links">
+        <h2>Fontes da nossa pesquisa: </h2>
+        <div class="link-list">
+            <a href="https://chatgpt.com/?model=auto" target="_blank">ChatGPT</a>
+            <a href="https://pt.wikipedia.org/wiki/Virtual_LAN" target="_blank">Wikipedia</a>
+            <a href="https://anlix.io/vlan-redes-virtuais-facilitam-trafego-e-agilizam-conexao/#:~:text=A%20VLAN%20%C3%A9%20um%20protocolo" target="_blank">Anlix - Redes Virtuais</a>
+            <a href="https://www.controle.net/faq/o-que-e-para-que-serve-uma-vlan" target="_blank">Controle.net - FAQ</a>
+        </div>
+      </section>
+    
+      <footer>
+        <p>João Lustosa Cordeiro - 24134; Guilherme Germano Moraes de Araújo - 24129; Pietro Pires Bertato - 24146</p>
+      </footer>
+</body>
+</html>
